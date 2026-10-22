@@ -7,11 +7,18 @@
     "text": "Trustworthy data agents with commons\n\nSimon Couch and Sara Altman\nPosit Monthly Workflow Demos\nOctober 28, 2026\n\n\n\n\n\n\nhttps://simonpcouch.github.io/commons-demo/"
   },
   {
+    "objectID": "index.html#non-data-scientist",
+    "href": "index.html#non-data-scientist",
+    "title": "",
+    "section": "",
+    "text": "Earlier this year, we started seeing something internally and at the organizations we worked with that concerned us. It’s become normal to vibe analyze data; a broader population of people can now convincingly do data analysis by pulling up a coding agent and asking a data question."
+  },
+  {
     "objectID": "index.html#test-set",
     "href": "index.html#test-set",
     "title": "",
     "section": "",
-    "text": "This is something we’ve seen internally at Posit and in organizations we work with: it’s becoming normal to vibe-analyze data.\nand this is a still from posit’s podcast the test set where nell thomas talks about how she’s been seeing this in her organization. vibe analyzing in cursor data people often are kind of rightfully horrified at the idea of vibe analyzing, but it is something we have to pay attention to! People are going to reach towards teh technology that gives them answers, and we have to replace their vibe analyzing with something."
+    "text": "and this is a still from posit’s podcast the test set where nell thomas talks about how she’s been seeing this in her organization. vibe analyzing in cursor\nsets a low bar for correctness and reproducibility\ndata people often are kind of rightfully horrified at the idea of vibe analyzing, but it is something we have to pay attention to! People are going to reach towards teh technology that gives them answers, and we think data people have the skill set to serve these people with chat bots that give more correct and reproducible data agent.s"
   },
   {
     "objectID": "index.html#trust-question",
@@ -61,20 +68,6 @@
     "title": "",
     "section": "Two problems",
     "text": "Two problems\n\n  \n    The model has to write the right code.\n    Trusted calculations and organizational context\n  \n  \n    The user has to know how trustworthy the code is.\n    Trust tags and verified citations\n  \n\n\nTrusted calculations and context help with the first problem. tags and checked citations make the answer’s grounding visible for the second."
-  },
-  {
-    "objectID": "index.html#why-not-model-grade",
-    "href": "index.html#why-not-model-grade",
-    "title": "",
-    "section": "",
-    "text": "commons deterministically tags the trust level. This isn’t decided by the model. Question: why not have the model assign the trust levels?\nmodels are great performers"
-  },
-  {
-    "objectID": "index.html#answers-look-the-same",
-    "href": "index.html#answers-look-the-same",
-    "title": "",
-    "section": "The answers look the same",
-    "text": "The answers look the same\n\n\n\n\n ❌\n\n\n ✅\n\n\n ❌\n\n\n\n\nThe problem with this performance just that the model is sometimes wrong, it’s that the wrong answers are confident and can be indistinguishable from the right ones\nwe have a clearly parabolic plot and three descriptions from the same model shared tone, shared style, shared length – but different description each time if you didn’t know what the plot looked like, you wouldn’t be able to disentangle the correct ones from the incorrect ones\nwe also did one experiment where we asked the model to report its confidence level…always said ~95%"
   },
   {
     "objectID": "index.html#commons-trust-flow",
