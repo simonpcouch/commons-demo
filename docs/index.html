@@ -100,7 +100,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-50b53d9b1af29f17ab5a6e2777eb8355.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-b65de7da8baffd07c277a1c6e6368e59.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -204,15 +204,16 @@
 <div class="column" style="width:68%;">
 <h3 class="talk-title" id="trustworthy-data-agents-with-commons">Trustworthy data agents with commons</h3>
 <div class="talk-meta">
-<p><strong>Sara Altman and Simon Couch</strong></p>
-<p>Posit Monthly Workflow Demos October 28, 2026</p>
+<p><strong>Simon Couch and Sara Altman</strong></p>
+<p>Posit Monthly Workflow Demos</p>
+<p>October 28, 2026</p>
 </div>
 </div></div>
 <div class="title-commons">
 <p><img data-src="figures/commons-hex.png" class="" alt="Commons hex sticker"></p>
 </div>
 <div class="footer title-footer">
-<p>https://skaltman.github.io/hmrc-2026/</p>
+<p>https://simonpcouch.github.io/commons-demo/</p>
 </div>
 </section>
 <section id="test-set" class="slide level2 paper-slide">
@@ -574,22 +575,6 @@
 <p><a href="https://github.com/posit-dev/clinical-trials-agent">https://github.com/posit-dev/clinical-trials-agent</a></p>
 </div>
 </section>
-<section id="clinical-trials-agent-demo" class="slide level2">
-<h2></h2>
-<video class="rounded click-to-toggle" width="100%" data-autoplay="" muted="" preload="auto" tabindex="0" aria-label="Clinical Trials Agent demo. Plays automatically; click to pause or resume.">
-<source src="figures/clinical-trials-agent-demo.mp4" type="video/mp4">
-</video>
-</section>
-<section id="aml-agent" class="slide level2 header-slide deep-slide">
-<h2></h2>
-<div class="columns">
-<div class="column header-text" style="width:64%;">
-<p>AML Agent</p>
-</div></div>
-<div class="footer clinical-trials-header-footer">
-<p><a href="https://posit-aml-agent.share.connect.posit.cloud">https://posit-aml-agent.share.connect.posit.cloud</a></p>
-</div>
-</section>
 <section id="commons-lifecycle" class="slide level2 lifecycle-slide paper-slide">
 <h2></h2>
 <div class="lifecycle-cards">
@@ -708,7 +693,8 @@
 <section id="build-agent" class="slide level2 paper-slide">
 <h2>Build</h2>
 <h4 id="putting-the-pieces-together">Putting the pieces together</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(commons)</span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|3,4|5|6|7|10|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(commons)</span>
 <span id="cb1-2"><a aria-label="2"></a></span>
 <span id="cb1-3"><a aria-label="3"></a>agent <span class="ot">&lt;-</span> <span class="fu">commons</span>(</span>
 <span id="cb1-4"><a aria-label="4"></a>  ellmer<span class="sc">::</span><span class="fu">chat_anthropic</span>(),</span>
@@ -718,6 +704,7 @@
 <span id="cb1-8"><a aria-label="8"></a>)</span>
 <span id="cb1-9"><a aria-label="9"></a></span>
 <span id="cb1-10"><a aria-label="10"></a><span class="fu">commons_app</span>(agent)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <aside class="notes">
 <p>This assembles a chat client, data source, semantic layer, and context layer; commons wraps them with trusted-calculation tools, context search, provenance marking, and a sandboxed R session.</p>
 <p>The data source here is a data frame (a clinical trials table), which commons loads into an in-process DuckDB database. The semantic and context layers are optional and grow over time – start with a small working scope and expand.</p>
@@ -737,7 +724,8 @@
 <section id="build-warehouse" class="slide level2 paper-slide">
 <h2>Build</h2>
 <h4 id="databricks-and-snowflake">Databricks and Snowflake</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="co"># Snowflake semantic view</span></span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" data-code-line-numbers="|1,2,3,4|6,7,8,9|11,12,13,14,15|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="co"># Snowflake semantic view</span></span>
 <span id="cb2-2"><a aria-label="2"></a>warehouse <span class="ot">&lt;-</span> <span class="fu">data_source</span>(</span>
 <span id="cb2-3"><a aria-label="3"></a>  snowflake_con, <span class="at">tables =</span> <span class="st">"ANALYTICS.TRIAL_ENROLLMENT"</span></span>
 <span id="cb2-4"><a aria-label="4"></a>)</span>
@@ -752,6 +740,7 @@
 <span id="cb2-13"><a aria-label="13"></a>  <span class="at">data_sources =</span> <span class="fu">list</span>(<span class="at">warehouse =</span> warehouse),</span>
 <span id="cb2-14"><a aria-label="14"></a>  <span class="at">context_layer =</span> <span class="fu">context_layer</span>(<span class="at">files =</span> <span class="st">"context/protocol-conventions.md"</span>)</span>
 <span id="cb2-15"><a aria-label="15"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <ul>
 <li class="fragment"><strong>Semantic layer:</strong> Snowflake <strong>semantic views</strong> or Databricks <strong>metric views</strong>, imported through <code>data_source()</code></li>
 </ul>
@@ -876,9 +865,9 @@
     <h1>Thank you!</h1>
   </div>
   <div class="thank-you-resources">
-<a class="thank-you-resource thank-you-link-card thank-you-slides-card" href="https://skaltman.github.io/hmrc-2026/">
+<a class="thank-you-resource thank-you-link-card thank-you-slides-card" href="https://simonpcouch.github.io/commons-demo/">
       <span class="thank-you-resource-label">Slides</span>
-      <span class="thank-you-resource-link">skaltman.github.io/<wbr>hmrc-2026/</span>
+      <span class="thank-you-resource-link">simonpcouch.github.io/<wbr>commons-demo/</span>
     </a>
     <a class="thank-you-resource thank-you-link-card thank-you-commons-card" href="https://pos.it/commons">
       <span class="thank-you-resource-label">Commons</span>
@@ -891,9 +880,6 @@
       </a>
       <a href="https://github.com/posit-dev/devrel-agent">
         <span class="thank-you-demo-url">https://github.com/<wbr>posit-dev/<wbr>devrel-agent</span>
-      </a>
-      <a href="https://posit-aml-agent.share.connect.posit.cloud">
-        <span class="thank-you-demo-url">https://posit-aml-agent.<wbr>share.connect.posit.cloud</span>
       </a>
     </div>
     <a class="thank-you-resource thank-you-link-card thank-you-newsletter-card" href="https://pos.it/ai-newsletter">

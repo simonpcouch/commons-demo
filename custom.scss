@@ -320,7 +320,7 @@ $link-color: color("bridge");
       margin: 0;
     }
 
-    p:last-child {
+    p:not(:first-child) {
       opacity: 0.75;
     }
 

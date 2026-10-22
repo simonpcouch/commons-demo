@@ -4,7 +4,7 @@
     "href": "index.html#title",
     "title": "",
     "section": "",
-    "text": "Trustworthy data agents with commons\n\nSara Altman and Simon Couch\nPosit Monthly Workflow Demos October 28, 2026\n\n\n\n\n\n\nhttps://skaltman.github.io/hmrc-2026/"
+    "text": "Trustworthy data agents with commons\n\nSimon Couch and Sara Altman\nPosit Monthly Workflow Demos\nOctober 28, 2026\n\n\n\n\n\n\nhttps://simonpcouch.github.io/commons-demo/"
   },
   {
     "objectID": "index.html#test-set",
@@ -91,13 +91,6 @@
     "text": "DevRel Agent\n\n\nhttps://github.com/posit-dev/devrel-agent\n\n\nLive demo: https://posit-devrel-agent.share.connect.posit.cloud/"
   },
   {
-    "objectID": "index.html#aml-agent",
-    "href": "index.html#aml-agent",
-    "title": "",
-    "section": "",
-    "text": "AML Agent\n\n\nhttps://posit-aml-agent.share.connect.posit.cloud"
-  },
-  {
     "objectID": "index.html#commons-lifecycle",
     "href": "index.html#commons-lifecycle",
     "title": "",
@@ -144,14 +137,14 @@
     "href": "index.html#build-agent",
     "title": "",
     "section": "Build",
-    "text": "Build\nPutting the pieces together\nlibrary(commons)\n\nagent &lt;- commons(\n  ellmer::chat_anthropic(),\n  data_sources = data_source(trials = trials),\n  semantic_layer = semantic_layer(\"R/measures.R\"),\n  context_layer = context_layer(files = \"context/protocol-conventions.md\")\n)\n\ncommons_app(agent)\n\nThis assembles a chat client, data source, semantic layer, and context layer; commons wraps them with trusted-calculation tools, context search, provenance marking, and a sandboxed R session.\nThe data source here is a data frame (a clinical trials table), which commons loads into an in-process DuckDB database. The semantic and context layers are optional and grow over time – start with a small working scope and expand.\nThe R/measures.R and context/protocol-conventions.md paths illustrate existing files that supply vetted R measures and organizational context. This is not a self-contained runnable example without those files and its data."
+    "text": "Build\nPutting the pieces together\n\nlibrary(commons)\n\nagent &lt;- commons(\n  ellmer::chat_anthropic(),\n  data_sources = data_source(trials = trials),\n  semantic_layer = semantic_layer(\"R/measures.R\"),\n  context_layer = context_layer(files = \"context/protocol-conventions.md\")\n)\n\ncommons_app(agent)\n\n\nThis assembles a chat client, data source, semantic layer, and context layer; commons wraps them with trusted-calculation tools, context search, provenance marking, and a sandboxed R session.\nThe data source here is a data frame (a clinical trials table), which commons loads into an in-process DuckDB database. The semantic and context layers are optional and grow over time – start with a small working scope and expand.\nThe R/measures.R and context/protocol-conventions.md paths illustrate existing files that supply vetted R measures and organizational context. This is not a self-contained runnable example without those files and its data."
   },
   {
     "objectID": "index.html#build-warehouse",
     "href": "index.html#build-warehouse",
     "title": "",
     "section": "Build",
-    "text": "Build\nDatabricks and Snowflake\n# Snowflake semantic view\nwarehouse &lt;- data_source(\n  snowflake_con, tables = \"ANALYTICS.TRIAL_ENROLLMENT\"\n)\n\n# Or: Databricks metric view\nwarehouse &lt;- data_source(\n  databricks_con, tables = \"clinical.trial_enrollment_metrics\"\n)\n\nagent &lt;- commons(\n  ellmer::chat_anthropic(),\n  data_sources = list(warehouse = warehouse),\n  context_layer = context_layer(files = \"context/protocol-conventions.md\")\n)\n\nSemantic layer: Snowflake semantic views or Databricks metric views, imported through data_source()\n\n\nThe two warehouse objects above supply trusted metrics and dimensions: Snowflake calls them semantic views; Databricks calls them metric views. commons imports these through the data source, so they do not require a separate semantic_layer() call.\nWarehouse models need not supply only calculations: the Databricks integration also imports descriptive context from metric views. Do not present warehouse metadata and context as mutually exclusive categories.\n\nContext: warehouse models can also supply descriptive information. Add additional information to Markdown files and data dictionaries"
+    "text": "Build\nDatabricks and Snowflake\n\n# Snowflake semantic view\nwarehouse &lt;- data_source(\n  snowflake_con, tables = \"ANALYTICS.TRIAL_ENROLLMENT\"\n)\n\n# Or: Databricks metric view\nwarehouse &lt;- data_source(\n  databricks_con, tables = \"clinical.trial_enrollment_metrics\"\n)\n\nagent &lt;- commons(\n  ellmer::chat_anthropic(),\n  data_sources = list(warehouse = warehouse),\n  context_layer = context_layer(files = \"context/protocol-conventions.md\")\n)\n\n\nSemantic layer: Snowflake semantic views or Databricks metric views, imported through data_source()\n\n\nThe two warehouse objects above supply trusted metrics and dimensions: Snowflake calls them semantic views; Databricks calls them metric views. commons imports these through the data source, so they do not require a separate semantic_layer() call.\nWarehouse models need not supply only calculations: the Databricks integration also imports descriptive context from metric views. Do not present warehouse metadata and context as mutually exclusive categories.\n\nContext: warehouse models can also supply descriptive information. Add additional information to Markdown files and data dictionaries"
   },
   {
     "objectID": "index.html#deploy-connect",

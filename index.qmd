@@ -26,9 +26,10 @@ knitr:
 ### Trustworthy data agents with commons {.talk-title}
 
 ::: {.talk-meta}
-**Sara Altman and Simon Couch**
+**Simon Couch and Sara Altman**
 
 Posit Monthly Workflow Demos
+
 October 28, 2026
 :::
 :::
@@ -39,7 +40,7 @@ October 28, 2026
 :::
 
 ::: {.footer .title-footer}
-https://skaltman.github.io/hmrc-2026/
+https://simonpcouch.github.io/commons-demo/
 :::
 
 ## {#test-set .paper-slide}
@@ -343,26 +344,6 @@ Clinical Trials Agent
 [https://github.com/posit-dev/clinical-trials-agent](https://github.com/posit-dev/clinical-trials-agent)
 :::
 
-## {#clinical-trials-agent-demo}
-
-<video class="rounded click-to-toggle" width="100%" data-autoplay muted preload="auto" tabindex="0" aria-label="Clinical Trials Agent demo. Plays automatically; click to pause or resume.">
-  <source src="figures/clinical-trials-agent-demo.mp4" type="video/mp4">
-</video>
-
-## {#aml-agent .header-slide .deep-slide}
-
-::: {.columns}
-
-::: {.column .header-text width="64%"}
-AML Agent
-:::
-
-:::
-
-::: {.footer .clinical-trials-header-footer}
-[https://posit-aml-agent.share.connect.posit.cloud](https://posit-aml-agent.share.connect.posit.cloud)
-:::
-
 ## {#commons-lifecycle .lifecycle-slide .paper-slide}
 
 ::: {.lifecycle-cards}
@@ -467,7 +448,9 @@ while calculation definitions supply the semantic layer.
 
 #### Putting the pieces together
 
-```r
+```{r}
+#| eval: false
+#| code-line-numbers: "|3,4|5|6|7|10|"
 library(commons)
 
 agent <- commons(
@@ -498,7 +481,9 @@ is not a self-contained runnable example without those files and its data.
 
 #### Databricks and Snowflake
 
-```r
+```{r}
+#| eval: false
+#| code-line-numbers: "|1,2,3,4|6,7,8,9|11,12,13,14,15|"
 # Snowflake semantic view
 warehouse <- data_source(
   snowflake_con, tables = "ANALYTICS.TRIAL_ENROLLMENT"
@@ -605,9 +590,9 @@ we've learned from years of code for analysis that code is great for this
     <h1>Thank you!</h1>
   </div>
   <div class="thank-you-resources">
-<a class="thank-you-resource thank-you-link-card thank-you-slides-card" href="https://skaltman.github.io/hmrc-2026/">
+<a class="thank-you-resource thank-you-link-card thank-you-slides-card" href="https://simonpcouch.github.io/commons-demo/">
       <span class="thank-you-resource-label">Slides</span>
-      <span class="thank-you-resource-link">skaltman.github.io/<wbr>hmrc-2026/</span>
+      <span class="thank-you-resource-link">simonpcouch.github.io/<wbr>commons-demo/</span>
     </a>
     <a class="thank-you-resource thank-you-link-card thank-you-commons-card" href="https://pos.it/commons">
       <span class="thank-you-resource-label">Commons</span>
@@ -620,9 +605,6 @@ we've learned from years of code for analysis that code is great for this
       </a>
       <a href="https://github.com/posit-dev/devrel-agent">
         <span class="thank-you-demo-url">https://github.com/<wbr>posit-dev/<wbr>devrel-agent</span>
-      </a>
-      <a href="https://posit-aml-agent.share.connect.posit.cloud">
-        <span class="thank-you-demo-url">https://posit-aml-agent.<wbr>share.connect.posit.cloud</span>
       </a>
     </div>
     <a class="thank-you-resource thank-you-link-card thank-you-newsletter-card" href="https://pos.it/ai-newsletter">
