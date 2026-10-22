@@ -6,8 +6,8 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <title>index</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,10 +19,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -201,8 +204,8 @@
 <div class="column" style="width:68%;">
 <h3 class="talk-title" id="trustworthy-data-agents-with-commons">Trustworthy data agents with commons</h3>
 <div class="talk-meta">
-<p><strong>Sara Altman</strong></p>
-<p>HMRC October 20, 2026</p>
+<p><strong>Sara Altman and Simon Couch</strong></p>
+<p>Posit Monthly Workflow Demos October 28, 2026</p>
 </div>
 </div></div>
 <div class="title-commons">
@@ -211,22 +214,6 @@
 <div class="footer title-footer">
 <p>https://skaltman.github.io/hmrc-2026/</p>
 </div>
-</section>
-<section id="non-data-scientist" class="slide level2 paper-slide">
-<h2></h2>
-<aside class="notes">
-<p>llms open up data analysis to more people. it is now easier than ever to get <em>an</em> answer to your data question, whether or not that answer is right</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="test-set" class="slide level2 paper-slide">
 <h2></h2>
@@ -245,331 +232,6 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section id="story-of-an-eval" class="slide level2 beat-slide">
-<h2>How good are models at data analysis?</h2>
-<aside class="notes">
-<p>before we talk about solutions, I want to take a step back and talk about some evals that we’ve done over the past year and some thought on how good models actually currently are at data analysis</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="bluffbench-counterintuitive-plot" class="slide level2 paper-slide">
-<h2></h2>
-<div class="plot-slide-content fragment" data-fragment-index="0">
-<div class="cell" data-layout-align="center" data-fig-bg="#f5f0ee">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" style="width:92.0%" alt="A scatterplot of price against carat. The points form a clear negative association, with price generally falling as carat rises."></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment fade-in-then-out plot-model-quote" data-fragment-index="1">
-<strong>Model:</strong> “There’s a strong positive relationship between carat and price!”
-</div>
-<div class="fragment plot-overlay-caption" data-fragment-index="2">
-Can models interpret plots that contradict their expectations?
-</div>
-<aside class="notes">
-<p>around a year ago we did an experiment we wanted to know how well models interpret plots we showed them plots like this one, which plots diamonds and asked them to interpret them and they said stuff like this: and that sounds good until you release: that is not …</p>
-<p>this is what we wanted to know: would models correctly interpret plots that contradicted their expectations?</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="bluffbench-november-2025" class="slide level2 paper-slide">
-<h2>November 2025</h2>
-<div class="plot-slide-content">
-<div class="cell" data-layout-align="center" data-fig-bg="#f5f0ee">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" style="width:70.0%" alt="A horizontal stacked bar chart titled 'Models often report what they expect to see, not what's plotted.' GPT-5, Gemini Pro 2.5, and Claude Sonnet 4.5 are mostly incorrect."></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="footer">
-<p>posit-dev.github.io/bluffbench</p>
-</div>
-<aside class="notes">
-<p>We tried a range of interventions to improve these scores, but none moved them much.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="bluffbench-september-2026" class="slide level2 paper-slide">
-<h2>September 2026</h2>
-<div class="plot-slide-content">
-<div class="cell" data-layout-align="center" data-fig-bg="#f5f0ee">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" style="width:70.0%" alt="A faceted horizontal stacked bar chart of percent correct across recent models, split into thinking and no-thinking groups. Thinking models perform better, while most models still give many incorrect answers."></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="footer">
-<p>posit-dev.github.io/bluffbench</p>
-</div>
-<aside class="notes">
-<p>The newer models did substantially better on this eval. This was a failure that worried us, and interventions hadn’t helped much. Model improvements changed the results, so our assessment needs to change too.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="models-got-better" class="slide level2 beat-slide">
-<h2>The models got better</h2>
-</section>
-<section id="rising-tide" class="slide level2" data-background-image="figures/vidar-nordli-mathisen-U45J8RWFWvA-unsplash.jpg">
-<h2>A rising tide lifts all boats</h2>
-<div class="footer">
-<p><span style="color:#f5f1ec;">Photo: <a href="https://unsplash.com/@vidarnm">Vidar Nordli-Mathisen</a>, Unsplash</span></p>
-</div>
-<aside class="notes">
-<p>the rising tide of model capability really floats all the boats</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="rising-tide" class="slide level2" data-background-image="figures/vidar-nordli-mathisen-U45J8RWFWvA-unsplash.jpg">
-<h2>A rising tide lifts <span style="color: #b8623f;">some of the</span> boats</h2>
-<div class="footer">
-<p><span style="color:#f5f1ec;">Photo: <a href="https://unsplash.com/@vidarnm">Vidar Nordli-Mathisen</a>, Unsplash</span></p>
-</div>
-</section>
-<section id="frontier-model-not-enough" class="slide level2 beat-slide">
-<h2>But this doesn’t mean everything is solved</h2>
-</section>
-<section id="bluffbench2-data-artifact" class="slide level2 paper-slide">
-<h2></h2>
-<div class="plot-slide-content">
-<div class="cell" data-layout-align="center" data-fig-bg="#f5f0ee">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" style="width:92.0%" alt="A scatterplot of sleep hours against stress score with a negative trend. A subset of points falls exactly along a straight line, suggesting a data-quality artifact."></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="footer">
-<p>github.com/posit-dev/bluffbench2</p>
-</div>
-<aside class="notes">
-<p>we showed them plots that look like this take a look at this plot. what do you notice?</p>
-<p>one thing that flags my attention is these points through the middle of the cloud that fall exactly on a straight line. this is something i might want to dig into further and make sure nothing strange was happening in the underlying data.</p>
-<p>we wanted to see if models would be able to pick up on this kind of subtle visual artifact</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="bluffbench2-results" class="slide level2 paper-slide">
-<h2></h2>
-<div class="plot-slide-content">
-<div class="cell" data-layout-align="center" data-fig-bg="#f5f0ee">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" style="width:78.0%" alt="A horizontal bar chart of bluffbench2 scores by model. Every model scores below 50 percent, showing that frontier models still struggle to notice subtle data-quality issues."></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="footer">
-<p>github.com/posit-dev/bluffbench2</p>
-</div>
-<aside class="notes">
-<p>Models have improved, but not every capability has improved equally.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="llms-smooth" class="slide level2 paper-slide">
-<h2></h2>
-<p><img data-src="figures/task-llm-smooth.excalidraw.svg" class="" style="max-width: 90%; max-height: 500px; display: block; margin-left: auto; margin-right: auto;" alt="A schematic showing an expected straight-line relationship between task difficulty and model performance."></p>
-</section>
-<section id="llms-are-jagged" class="slide level2 paper-slide">
-<h2>LLMs are jagged</h2>
-<p><img data-src="figures/task-llm-jagged.excalidraw.svg" class="" style="max-width: 90%; max-height: 500px; display: block; margin-left: auto; margin-right: auto;" alt="A schematic showing LLM performance rising and falling unevenly across tasks of increasing difficulty."></p>
-<aside class="notes">
-<p>a year ago, we often told people about the jaggedness of llms strengths in one task don’t tell us everything about performance on another.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="capability-profiles" class="slide level2 paper-slide">
-<h2></h2>
-<div class="r-stack">
-<div class="fragment fade-out" data-fragment-index="0">
-<div class="cell" data-layout-align="center" data-fig-bg="transparent">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/capability-profile-first-1.png" class="quarto-figure quarto-figure-center" style="width:85.0%" alt="An illustrative five-axis capability profile: planning, writing, code review, refactor, and data analysis."></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment current-visible" data-fragment-index="0">
-<div class="cell" data-layout-align="center" data-fig-bg="transparent">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/capability-profile-other-1.png" class="quarto-figure quarto-figure-center" style="width:85.0%" alt="A different illustrative model profile on the same five capability axes."></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment" data-fragment-index="1">
-<div class="cell" data-layout-align="center" data-fig-bg="transparent">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/capability-profile-newer-1.png" class="quarto-figure quarto-figure-center" style="width:85.0%" alt="An illustrative newer-release profile on the same five capability axes."></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>now I might explain it more like this where a model has different strengths in different areas and maybe some weird behaviors but also this varies model by model and version by version</p>
-<p>one reason i would now not say “use the best model available” but instead use the least expensive model that does a sufficient job at your task, and switch depending on the task.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="deficits-slide" class="title-slide slide level1 statement-slide paper-slide center">
-<h1></h1>
-<div class="statement">
-<p>Models still have deficits in skills central to data analysis.</p>
-</div>
-</section>
-
-<section>
-<section id="context-outside-the-data" class="title-slide slide level1 statement-slide beat-slide center">
-<h1></h1>
-<div class="statement">
-<p>Data analysis depends on <span class="accent">context</span> that is not in the data.</p>
-</div>
-<aside class="notes">
-<p>also even if models were perfect, data analysis isn’t solved. depends on context Definitions, conventions, documentation, and tacit organizational knowledge don’t automatically become available to an LLM just because it is more capable.</p>
-<p>That context might live in data dictionaries, semantic views, or in the mind of a coworker who has been at the organization for 20 years.</p>
-<p>Depending on your organization’s setup, making that context available can be a lot of work in itself.</p>
-<p>your context may be really neat, well maintained, organized, or…</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="context-messy-desk" class="slide level2" data-background-image="figures/wonderlane-6jA6eVsRJ6Q-unsplash.jpg">
-<h2></h2>
-<aside class="notes">
-<p>it might feel something like this</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<div class="footer">
-<p><span style="color:#f5f1ec;">Photo: <a href="https://unsplash.com/@wonderlane">Wonderlane</a>, Unsplash</span></p>
-</div>
 </section>
 <section id="trust-question" class="slide level2 deep-slide">
 <h2>How do we make data analysis agents trustworthy?</h2>
@@ -611,7 +273,7 @@ Can models interpret plots that contradict their expectations?
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section></section>
+</section>
 <section id="commons" class="title-slide slide level1 commons-intro-slide center">
 <h1></h1>
 <p><img data-src="figures/commons-hex.png" class="commons-intro-logo" alt="Commons logo"></p>
@@ -1046,16 +708,16 @@ Can models interpret plots that contradict their expectations?
 <section id="build-agent" class="slide level2 paper-slide">
 <h2>Build</h2>
 <h4 id="putting-the-pieces-together">Putting the pieces together</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(commons)</span>
-<span id="cb1-2"><a></a></span>
-<span id="cb1-3"><a></a>agent <span class="ot">&lt;-</span> <span class="fu">commons</span>(</span>
-<span id="cb1-4"><a></a>  ellmer<span class="sc">::</span><span class="fu">chat_anthropic</span>(),</span>
-<span id="cb1-5"><a></a>  <span class="at">data_sources =</span> <span class="fu">data_source</span>(<span class="at">trials =</span> trials),</span>
-<span id="cb1-6"><a></a>  <span class="at">semantic_layer =</span> <span class="fu">semantic_layer</span>(<span class="st">"R/measures.R"</span>),</span>
-<span id="cb1-7"><a></a>  <span class="at">context_layer =</span> <span class="fu">context_layer</span>(<span class="at">files =</span> <span class="st">"context/protocol-conventions.md"</span>)</span>
-<span id="cb1-8"><a></a>)</span>
-<span id="cb1-9"><a></a></span>
-<span id="cb1-10"><a></a><span class="fu">commons_app</span>(agent)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(commons)</span>
+<span id="cb1-2"><a aria-label="2"></a></span>
+<span id="cb1-3"><a aria-label="3"></a>agent <span class="ot">&lt;-</span> <span class="fu">commons</span>(</span>
+<span id="cb1-4"><a aria-label="4"></a>  ellmer<span class="sc">::</span><span class="fu">chat_anthropic</span>(),</span>
+<span id="cb1-5"><a aria-label="5"></a>  <span class="at">data_sources =</span> <span class="fu">data_source</span>(<span class="at">trials =</span> trials),</span>
+<span id="cb1-6"><a aria-label="6"></a>  <span class="at">semantic_layer =</span> <span class="fu">semantic_layer</span>(<span class="st">"R/measures.R"</span>),</span>
+<span id="cb1-7"><a aria-label="7"></a>  <span class="at">context_layer =</span> <span class="fu">context_layer</span>(<span class="at">files =</span> <span class="st">"context/protocol-conventions.md"</span>)</span>
+<span id="cb1-8"><a aria-label="8"></a>)</span>
+<span id="cb1-9"><a aria-label="9"></a></span>
+<span id="cb1-10"><a aria-label="10"></a><span class="fu">commons_app</span>(agent)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
 <p>This assembles a chat client, data source, semantic layer, and context layer; commons wraps them with trusted-calculation tools, context search, provenance marking, and a sandboxed R session.</p>
 <p>The data source here is a data frame (a clinical trials table), which commons loads into an in-process DuckDB database. The semantic and context layers are optional and grow over time – start with a small working scope and expand.</p>
@@ -1075,21 +737,21 @@ Can models interpret plots that contradict their expectations?
 <section id="build-warehouse" class="slide level2 paper-slide">
 <h2>Build</h2>
 <h4 id="databricks-and-snowflake">Databricks and Snowflake</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Snowflake semantic view</span></span>
-<span id="cb2-2"><a></a>warehouse <span class="ot">&lt;-</span> <span class="fu">data_source</span>(</span>
-<span id="cb2-3"><a></a>  snowflake_con, <span class="at">tables =</span> <span class="st">"ANALYTICS.TRIAL_ENROLLMENT"</span></span>
-<span id="cb2-4"><a></a>)</span>
-<span id="cb2-5"><a></a></span>
-<span id="cb2-6"><a></a><span class="co"># Or: Databricks metric view</span></span>
-<span id="cb2-7"><a></a>warehouse <span class="ot">&lt;-</span> <span class="fu">data_source</span>(</span>
-<span id="cb2-8"><a></a>  databricks_con, <span class="at">tables =</span> <span class="st">"clinical.trial_enrollment_metrics"</span></span>
-<span id="cb2-9"><a></a>)</span>
-<span id="cb2-10"><a></a></span>
-<span id="cb2-11"><a></a>agent <span class="ot">&lt;-</span> <span class="fu">commons</span>(</span>
-<span id="cb2-12"><a></a>  ellmer<span class="sc">::</span><span class="fu">chat_anthropic</span>(),</span>
-<span id="cb2-13"><a></a>  <span class="at">data_sources =</span> <span class="fu">list</span>(<span class="at">warehouse =</span> warehouse),</span>
-<span id="cb2-14"><a></a>  <span class="at">context_layer =</span> <span class="fu">context_layer</span>(<span class="at">files =</span> <span class="st">"context/protocol-conventions.md"</span>)</span>
-<span id="cb2-15"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="co"># Snowflake semantic view</span></span>
+<span id="cb2-2"><a aria-label="2"></a>warehouse <span class="ot">&lt;-</span> <span class="fu">data_source</span>(</span>
+<span id="cb2-3"><a aria-label="3"></a>  snowflake_con, <span class="at">tables =</span> <span class="st">"ANALYTICS.TRIAL_ENROLLMENT"</span></span>
+<span id="cb2-4"><a aria-label="4"></a>)</span>
+<span id="cb2-5"><a aria-label="5"></a></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="co"># Or: Databricks metric view</span></span>
+<span id="cb2-7"><a aria-label="7"></a>warehouse <span class="ot">&lt;-</span> <span class="fu">data_source</span>(</span>
+<span id="cb2-8"><a aria-label="8"></a>  databricks_con, <span class="at">tables =</span> <span class="st">"clinical.trial_enrollment_metrics"</span></span>
+<span id="cb2-9"><a aria-label="9"></a>)</span>
+<span id="cb2-10"><a aria-label="10"></a></span>
+<span id="cb2-11"><a aria-label="11"></a>agent <span class="ot">&lt;-</span> <span class="fu">commons</span>(</span>
+<span id="cb2-12"><a aria-label="12"></a>  ellmer<span class="sc">::</span><span class="fu">chat_anthropic</span>(),</span>
+<span id="cb2-13"><a aria-label="13"></a>  <span class="at">data_sources =</span> <span class="fu">list</span>(<span class="at">warehouse =</span> warehouse),</span>
+<span id="cb2-14"><a aria-label="14"></a>  <span class="at">context_layer =</span> <span class="fu">context_layer</span>(<span class="at">files =</span> <span class="st">"context/protocol-conventions.md"</span>)</span>
+<span id="cb2-15"><a aria-label="15"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li class="fragment"><strong>Semantic layer:</strong> Snowflake <strong>semantic views</strong> or Databricks <strong>metric views</strong>, imported through <code>data_source()</code></li>
 </ul>
