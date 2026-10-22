@@ -216,12 +216,29 @@
 <p>https://simonpcouch.github.io/commons-demo/</p>
 </div>
 </section>
+<section id="non-data-scientist" class="slide level2 paper-slide">
+<h2></h2>
+<aside class="notes">
+<p>Earlier this year, we started seeing something internally and at the organizations we worked with that concerned us. It’s become normal to vibe analyze data; a broader population of people can now convincingly do data analysis by pulling up a coding agent and asking a data question.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="test-set" class="slide level2 paper-slide">
 <h2></h2>
 <p><img data-src="figures/rogue-analysis-in-cursor.png" class="rounded" style="display: block; margin: 0 auto; max-width: 90%; max-height: 620px;" alt="Screenshot of The Test Set podcast episode about rogue analysis in Cursor."></p>
 <aside class="notes">
-<p>This is something we’ve seen internally at Posit and in organizations we work with: it’s becoming normal to vibe-analyze data.</p>
-<p>and this is a still from posit’s podcast the test set where nell thomas talks about how she’s been seeing this in her organization. vibe analyzing in cursor data people often are kind of rightfully horrified at the idea of vibe analyzing, but it is something we have to pay attention to! People are going to reach towards teh technology that gives them answers, and we have to replace their vibe analyzing with something.</p>
+<p>and this is a still from posit’s podcast the test set where nell thomas talks about how she’s been seeing this in her organization. vibe analyzing in cursor</p>
+<p>sets a low bar for correctness and reproducibility</p>
+<p>data people often are kind of rightfully horrified at the idea of vibe analyzing, but it is something we have to pay attention to! People are going to reach towards teh technology that gives them answers, and we think data people have the skill set to serve these people with chat bots that give more correct and reproducible data agent.s</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -333,6 +350,10 @@
 <li class="fragment">A feedback loop to push more queries up the trust ladder over time</li>
 </ul>
 </section>
+<section id="commons-trusted-calculation-still" class="slide level2">
+<h2></h2>
+
+<img class="rounded r-stretch" src="figures/commons-01-traffic-trend-a-first.png" width="100%" alt="Commons interface before the agent searches for a trusted calculation."></section>
 <section id="commons-trusted-calculation" class="slide level2">
 <h2></h2>
 <video class="rounded click-to-toggle" width="100%" preload="auto" data-autoplay="" muted="" tabindex="0" aria-label="Commons recording: the agent searches for and runs the data scientist's site traffic calculation, and the answer is marked verified. Click to pause or resume.">
@@ -353,6 +374,24 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="commons-trusted-calculation-b" class="slide level2">
+<h2></h2>
+<video class="rounded click-to-toggle" width="100%" preload="auto" data-autoplay="" muted="" tabindex="0" aria-label="Commons recording: continuation of the trusted calculation example. Click to pause or resume.">
+<source src="figures/commons-01-traffic-trend-b.mp4" type="video/mp4">
+</video>
+</section>
+<section id="commons-trusted-calculation-c" class="slide level2">
+<h2></h2>
+<video class="rounded click-to-toggle" width="100%" preload="auto" data-autoplay="" muted="" tabindex="0" aria-label="Commons recording: continuation of the trusted calculation example. Click to pause or resume.">
+<source src="figures/commons-01-traffic-trend-c.mp4" type="video/mp4">
+</video>
+</section>
+<section id="commons-trusted-calculation-d" class="slide level2">
+<h2></h2>
+<video class="rounded click-to-toggle" width="100%" preload="auto" data-autoplay="" muted="" tabindex="0" aria-label="Commons recording: continuation of the trusted calculation example. Click to pause or resume.">
+<source src="figures/commons-01-traffic-trend-d.mp4" type="video/mp4">
+</video>
 </section>
 <section id="commons-context-citations" class="slide level2">
 <h2></h2>
@@ -422,55 +461,6 @@
 </div>
 <aside class="notes">
 <p>Trusted calculations and context help with the first problem. tags and checked citations make the answer’s grounding visible for the second.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="why-not-model-grade" class="slide level2 paper-slide">
-<h2></h2>
-<aside class="notes">
-<p>commons deterministically tags the trust level. This isn’t decided by the model. Question: why not have the model assign the trust levels?</p>
-<p>models are great performers</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="answers-look-the-same" class="slide level2 paper-slide">
-<h2>The answers look the same</h2>
-<div style="display:flex; flex-direction:row; align-items:center; justify-content:center; gap:34px; margin-top:24px;">
-<img src="figures/trees-plot.png" alt="A scatterplot titled Doug Fir Height vs. Circumference. Height rises with circumference up to about 150 to 170 cm and then falls, forming a clear inverted-U parabola." style="width:475px;">
-<div style="display:flex; flex-direction:column; gap:22px;">
-<div style="position:relative;">
-<p><img src="figures/trees-incorrect-01.png" alt="A model description of the tree plot claiming a weak positive correlation between circumference and height, though noisy. It is marked incorrect for the parabolic data, yet shares the same confident tone and style as the other answers." class="fragment" data-fragment-index="1" style="width:700px; display:block;"> <span class="fragment" data-fragment-index="4" style="position:absolute; top:50%; right:16px; transform:translateY(-50%); font-size:2.4em; line-height:1; text-shadow:0 0 8px #fff, 0 0 8px #fff;">❌</span></p>
-</div>
-<div style="position:relative;">
-<p><img src="figures/trees-correct.png" alt="A model description of the tree plot stating there is a non-linear, parabolic relationship where height increases with circumference up to about 150 to 170 cm and then decreases. This answer is correct, but reads no differently from the wrong ones." class="fragment" data-fragment-index="2" style="width:700px; display:block;"> <span class="fragment" data-fragment-index="4" style="position:absolute; top:50%; right:16px; transform:translateY(-50%); font-size:2.4em; line-height:1; text-shadow:0 0 8px #fff, 0 0 8px #fff;">✅</span></p>
-</div>
-<div style="position:relative;">
-<p><img src="figures/trees-incorrect-02.png" alt="A model description of the tree plot claiming a slight negative correlation between circumference and height. It is marked incorrect for the parabolic data, and is indistinguishable in tone and length from the correct answer above." class="fragment" data-fragment-index="3" style="width:700px; display:block;"> <span class="fragment" data-fragment-index="4" style="position:absolute; top:50%; right:16px; transform:translateY(-50%); font-size:2.4em; line-height:1; text-shadow:0 0 8px #fff, 0 0 8px #fff;">❌</span></p>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>The problem with this performance just that the model is sometimes wrong, it’s that the wrong answers are confident and can be indistinguishable from the right ones</p>
-<p>we have a clearly parabolic plot and three descriptions from the same model shared tone, shared style, shared length – but different description each time if you didn’t know what the plot looked like, you wouldn’t be able to disentangle the correct ones from the incorrect ones</p>
-<p>we also did one experiment where we asked the model to report its confidence level…always said ~95%</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
