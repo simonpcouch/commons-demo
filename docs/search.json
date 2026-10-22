@@ -7,102 +7,11 @@
     "text": "Trustworthy data agents with commons\n\nSimon Couch and Sara Altman\nPosit Monthly Workflow Demos\nOctober 28, 2026\n\n\n\n\n\n\nhttps://simonpcouch.github.io/commons-demo/"
   },
   {
-    "objectID": "index.html#non-data-scientist",
-    "href": "index.html#non-data-scientist",
-    "title": "",
-    "section": "",
-    "text": "llms open up data analysis to more people. it is now easier than ever to get an answer to your data question, whether or not that answer is right"
-  },
-  {
     "objectID": "index.html#test-set",
     "href": "index.html#test-set",
     "title": "",
     "section": "",
     "text": "This is something we’ve seen internally at Posit and in organizations we work with: it’s becoming normal to vibe-analyze data.\nand this is a still from posit’s podcast the test set where nell thomas talks about how she’s been seeing this in her organization. vibe analyzing in cursor data people often are kind of rightfully horrified at the idea of vibe analyzing, but it is something we have to pay attention to! People are going to reach towards teh technology that gives them answers, and we have to replace their vibe analyzing with something."
-  },
-  {
-    "objectID": "index.html#story-of-an-eval",
-    "href": "index.html#story-of-an-eval",
-    "title": "",
-    "section": "How good are models at data analysis?",
-    "text": "How good are models at data analysis?\n\nbefore we talk about solutions, I want to take a step back and talk about some evals that we’ve done over the past year and some thought on how good models actually currently are at data analysis"
-  },
-  {
-    "objectID": "index.html#bluffbench-counterintuitive-plot",
-    "href": "index.html#bluffbench-counterintuitive-plot",
-    "title": "",
-    "section": "",
-    "text": "Model: “There’s a strong positive relationship between carat and price!”\n\n\nCan models interpret plots that contradict their expectations?\n\n\naround a year ago we did an experiment we wanted to know how well models interpret plots we showed them plots like this one, which plots diamonds and asked them to interpret them and they said stuff like this: and that sounds good until you release: that is not …\nthis is what we wanted to know: would models correctly interpret plots that contradicted their expectations?"
-  },
-  {
-    "objectID": "index.html#bluffbench-november-2025",
-    "href": "index.html#bluffbench-november-2025",
-    "title": "",
-    "section": "November 2025",
-    "text": "November 2025\n\n\n\n\n\n\n\n\n\n\n\n\nposit-dev.github.io/bluffbench\n\n\nWe tried a range of interventions to improve these scores, but none moved them much."
-  },
-  {
-    "objectID": "index.html#bluffbench-september-2026",
-    "href": "index.html#bluffbench-september-2026",
-    "title": "",
-    "section": "September 2026",
-    "text": "September 2026\n\n\n\n\n\n\n\n\n\n\n\n\nposit-dev.github.io/bluffbench\n\n\nThe newer models did substantially better on this eval. This was a failure that worried us, and interventions hadn’t helped much. Model improvements changed the results, so our assessment needs to change too."
-  },
-  {
-    "objectID": "index.html#models-got-better",
-    "href": "index.html#models-got-better",
-    "title": "",
-    "section": "The models got better",
-    "text": "The models got better"
-  },
-  {
-    "objectID": "index.html#rising-tide",
-    "href": "index.html#rising-tide",
-    "title": "",
-    "section": "A rising tide lifts some of the boats",
-    "text": "A rising tide lifts some of the boats\n\nPhoto: Vidar Nordli-Mathisen, Unsplash"
-  },
-  {
-    "objectID": "index.html#frontier-model-not-enough",
-    "href": "index.html#frontier-model-not-enough",
-    "title": "",
-    "section": "But this doesn’t mean everything is solved",
-    "text": "But this doesn’t mean everything is solved"
-  },
-  {
-    "objectID": "index.html#bluffbench2-data-artifact",
-    "href": "index.html#bluffbench2-data-artifact",
-    "title": "",
-    "section": "",
-    "text": "github.com/posit-dev/bluffbench2\n\n\nwe showed them plots that look like this take a look at this plot. what do you notice?\none thing that flags my attention is these points through the middle of the cloud that fall exactly on a straight line. this is something i might want to dig into further and make sure nothing strange was happening in the underlying data.\nwe wanted to see if models would be able to pick up on this kind of subtle visual artifact"
-  },
-  {
-    "objectID": "index.html#bluffbench2-results",
-    "href": "index.html#bluffbench2-results",
-    "title": "",
-    "section": "",
-    "text": "github.com/posit-dev/bluffbench2\n\n\nModels have improved, but not every capability has improved equally."
-  },
-  {
-    "objectID": "index.html#llms-are-jagged",
-    "href": "index.html#llms-are-jagged",
-    "title": "",
-    "section": "LLMs are jagged",
-    "text": "LLMs are jagged\n\n\na year ago, we often told people about the jaggedness of llms strengths in one task don’t tell us everything about performance on another."
-  },
-  {
-    "objectID": "index.html#capability-profiles",
-    "href": "index.html#capability-profiles",
-    "title": "",
-    "section": "",
-    "text": "now I might explain it more like this where a model has different strengths in different areas and maybe some weird behaviors but also this varies model by model and version by version\none reason i would now not say “use the best model available” but instead use the least expensive model that does a sufficient job at your task, and switch depending on the task."
-  },
-  {
-    "objectID": "index.html#context-messy-desk",
-    "href": "index.html#context-messy-desk",
-    "title": "",
-    "section": "",
-    "text": "it might feel something like this\n\n\nPhoto: Wonderlane, Unsplash"
   },
   {
     "objectID": "index.html#trust-question",
